@@ -315,6 +315,7 @@ Sub UpdateView()
     If bInit Then Exit Sub
     If m_MatVec Is Nothing Then Set m_MatVec = GetMatVec
     Dim fmt As Integer: fmt = Get_Format
+    If m_MatVec Is Nothing Then Exit Sub
     LblMatVec.Text = m_MatVec.ToStr(fmt)
 End Sub
 
@@ -326,6 +327,7 @@ Function GetMatVec() As CMatOp
     Dim dto As Double: dto = GetRndTo
     Dim nk  As Byte:    nk = Get_Format
     Set GetMatVec = MVMFactory.CMatRnd(r, c, dfr, dto)
+    If GetMatVec Is Nothing Then Exit Function
     GetMatVec.nk = nk
 End Function
 
